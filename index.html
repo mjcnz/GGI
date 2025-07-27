@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Olympus</title>
+  <style>
+    nav a { margin-right: 15px; cursor: pointer; }
+    .hidden { display: none; }
+    .tree-entry { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🌲 Dark Olympus</h1>
+
+  <nav>
+    <a href="#" id="nav-home">Home</a>
+    <a href="#" id="nav-woodcutting">Woodcutting</a>
+  </nav>
+
+  <div id="home-section">
+    <h2>🏠 Home</h2>
+    <div id="resources">
+      <p>Faith: <span id="current-faith">0</span></p>
+      <p>Favor: <span id="current-favor">10</span></p>
+      <p>Gold: <span id="current-gold">150</span></p>
+    </div>
+
+    <div id="axe-switcher">
+      <h3>🪓 Axe Selection</h3>
+      <ul id="axe-list"></ul>
+    </div>
+
+    <div id="blessing-system">
+      <h3>✨ Bless Your Axe</h3>
+      <input type="number" id="bless-amount" min="1" placeholder="Amount of Favor">
+      <button onclick="blessX()">Bless</button>
+      <button onclick="blessX(1)">Bless 1</button>
+      <button onclick="blessX(10)">Bless 10</button>
+      <button onclick="blessX('all')">Bless All</button>
+      <p id="blessing-status">Not blessed</p>
+    </div>
+  </div>
+
+  <div id="woodcutting-section" class="hidden">
+    <h2>🪓 Woodcutting</h2>
+    <div id="tree-list"></div>
+    <p>Woodcutting XP: <span id="woodcutting-xp">0</span></p>
+    <div id="woodcutting-log"></div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    // Inline nav fix
+    document.getElementById("nav-home").onclick = () => window.showSection("home");
+    document.getElementById("nav-woodcutting").onclick = () => window.showSection("woodcutting");
+  </script>
+</body>
+</html>
